@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+ div{
+ width: 6000px;
+ height:6000px;
+ top: 0px;
+ left:0px;
+ position: absolute;
+ z-index: 1;
+ }
+#zero{
+clip-path:polygon(26px 541px, 30px 482px, 103px 482px, 100px 544px)
+}
+#one{
+clip-path:polygon(87px 200px, 153px 200px, 152px 249px, 89px 241px, 87px 200px)
+}
+#two{
+clip-path:polygon(195px 213px, 273px 228px, 274px 264px, 184px 264px)
+}
+#three{
+clip-path:polygon(290px 215px, 366px 217px, 372px 264px, 295px 268px)
+}
+#four{
+clip-path:polygon(67px 341px, 65px 286px, 144px 280px, 146px 321px, 117px 347px)
+}
+#five{
+clip-path:polygon(174px 340px, 176px 289px, 267px 289px, 266px 339px)
+}
+#six{
+clip-path:polygon(295px 346px, 285px 296px, 385px 299px, 353px 334px, 324px 348px)
+}
+#seven{
+clip-path:polygon(45px 436px, 47px 381px, 120px 381px, 118px 440px)
+}
+#eight{
+clip-path:polygon(170px 436px, 179px 386px, 261px 389px, 261px 449px)
+}
+#nine{
+clip-path:polygon(283px 434px, 281px 390px, 354px 392px, 352px 440px)
+}
+#mult{
+clip-path:polygon(392px 300px, 460px 292px, 460px 363px, 394px 366px)
+}
+#div{
+clip-path:polygon(380px 387px, 428px 381px, 435px 447px, 385px 457px)
+}
+#add{
+clip-path:polygon(143px 494px, 234px 498px, 240px 543px, 135px 534px)
+}
+#minus{
+clip-path:polygon(263px 550px, 256px 500px, 338px 493px, 350px 544px)
+}
+#equal{
+clip-path:polygon(363px 543px, 361px 497px, 440px 492px, 434px 544px)
+}
+#clear{
+clip-path:polygon(403px 272px, 400px 202px, 454px 208px, 457px 264px)
+}
+</style>
+</head>
+
+<body>
+<img src="clcltr.png" style="width:500px; position: absolute">
+<p id="ans" style="position: absolute; width:320px; top:110px; left:117px; text-align:right"></p>
+<div id="zero" onclick="displayCalc(0,0)"></div>
+<div id="one" onclick="displayCalc(1,1)"></div>
+<div id="two" onclick="displayCalc(2,2)"></div>
+<div id="three" onclick="displayCalc(3,3)"></div>
+<div id="four" onclick="displayCalc(4,4)"></div>
+<div id="five" onclick="displayCalc(5,5)"></div>
+<div id="six" onclick="displayCalc(6,6)"></div>
+<div id="seven" onclick="displayCalc(7,7)"></div>
+<div id="eight" onclick="displayCalc(8,8)"></div>
+<div id="nine" onclick="displayCalc(9,9)"></div>
+<div id="mult" onclick='displayCalc(" &times; ","*")'></div>
+<div id="div" onclick='displayCalc(" &divide; ", "/")'></div>
+<div id="add" onclick='displayCalc(" + ","+")'></div>
+<div id="minus" onclick='displayCalc(" - ","-")'></div>
+<div id="equal" onclick="calc()"></div>
+<div id="clear" onclick="cleared()"></div>
+<script>
+let stringCalc = "";
+let newGame = true;
+
+
+function calc(){
+newGame=false;
+document.getElementById("ans").innerHTML = eval(stringCalc);
+}
+
+function displayCalc(n, p){
+ if (newGame==false){
+  stringCalc=(eval(stringCalc)).toString();
+  newGame=true;
+ }
+ 
+ stringCalc+=p;
+ document.getElementById("ans").innerHTML += n;
+}
+
+function cleared(){
+stringCalc="";
+document.getElementById("ans").innerHTML = "";
+newGame=true;
+}
+</script>
+</body>
+
+</html>
